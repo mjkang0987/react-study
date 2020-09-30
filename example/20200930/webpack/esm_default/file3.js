@@ -1,0 +1,1 @@
+import {func2 as myFunc2} from "./file1.js"; // as로 이름 변경
