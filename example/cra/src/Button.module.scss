@@ -1,0 +1,8 @@
+@import './partials/_default';
+
+@include size(100px, 50px);
+
+.button {
+    height: 50px;
+    background-color: $bg;
+}
