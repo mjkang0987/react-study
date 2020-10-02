@@ -1,0 +1,10 @@
+$bg: #eaeaea;
+@mixin size($big, $small) {
+    .big {
+        width: $big;
+    }
+
+    .small {
+        width: $small;
+    }
+}
