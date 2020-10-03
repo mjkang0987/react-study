@@ -1,42 +1,50 @@
-import React from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
-import Rooms from './Rooms';
+import React, {useState} from 'react';
 
 const App = () => {
+  const [todoList, setTodoList] = useState([]);
+  const [currentId, setCurrentId] = useState(1);
+  const [desc, setDesc] = useState('');
+  const [showOdd, setShowOdd] = useState(false);
+
+  const onAdd = () => {
+    const todo = {
+      id: currentId,
+      desc: desc
+    };
+    setCurrentId(currentId + 1);
+    setDesc('');
+    setTodoList([...todoList, todo]);
+  };
+
+  const onDelete = (e) => {
+    const id = Number(e.target.dataset.id);
+    const newTodoList = todoList.filter(todo => todo.id !== id);
+    setTodoList(newTodoList);
+  };
+
+  const onSaveServe = () => {
+    console.log('save');
+  };
+
   return (
-    <BrowserRouter>
-      <div
-        style={{padding: 20, border: '5px solid gray'}}>
-        <p>
-          <Link to='/'>홈</Link>
-        </p>
-        <p>
-          <Link to='/photo'>사진</Link>
-        </p>
-        <p>
-          <Link to='/rooms'>방 소개</Link>
-        </p>
-        <Route
-          exact
-          path='/'
-          component={Home} />
-        <Route
-          path='/photo'
-          component={Photo} />
-        <Route
-          path='/rooms'
-          component={Rooms} />
-      </div>
-    </BrowserRouter>
+    <div>
+      <h3>할 일 목록</h3>
+      <ul>
+        {todoList.filter((_, index) => showOdd ? index % 2 === 0 : true).map(li => {
+          return (
+            <li key={li.id}>
+              <span>{li.desc}</span>
+              <button onClick={onDelete} data-id={li.id}>삭제</button>
+            </li>
+          )
+        })}
+      </ul>
+      <input type="text" value={desc} onChange={e => setDesc(e.target.value)} />
+      <button onClick={onAdd}>추가</button>
+      <button onClick={() => setShowOdd(!showOdd)}>홀수 On/Off</button>
+      <button onClick={onSaveServe}>저장</button>
+    </div>
   );
-}
-
-const Home = () => {
-  return <h2>여기는 홈페이지 입니다. 원하는 페이지 버튼을 선택하세요.</h2>
-}
-
-const Photo = () => {
-  return <h2>여기서 사진을 감상하세요.</h2>
 }
 
 export default App;
