@@ -1,8 +1,0 @@
-@import './partials/_default';
-
-@include size(200px, 100px);
-
-.box {
-    height: 50px;
-    background-color: $bg;
-}
