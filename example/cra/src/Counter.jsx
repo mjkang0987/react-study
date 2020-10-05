@@ -11,7 +11,9 @@ const Counter = () => {
   }
   return (
     <>
-      <Title title={`전체 카운트: ${count.value}`} />
+      {count.value > 0 &&
+        <Title title={`전체 카운트: ${count.value}`}/>
+      }
       <button onClick={onClick}>증가</button>
     </>
   )
