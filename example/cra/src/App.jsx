@@ -1,18 +1,17 @@
 import React, {useState} from 'react';
+import ReactDOM from 'react-dom';
 import Counter from './Counter';
 
 const App = () => {
-  const [color, setColor] = useState('red');
-  const onClick = () => {
-    setColor('blue');
-  }
   return (
     <>
       <Counter />
-      <Counter />
-      <button style={{backgroundColor: color}} onClick={onClick}>
-        좋아요
-      </button>
+      {
+        ReactDOM.createPortal(
+          <div>안녕하세요</div>,
+          document.getElementById('portal')
+        )
+      }
     </>
   );
 }
