@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Counter from './Counter';
+import Todo from './Todo';
 
 const App = () => {
   const [seconds, setSeconds] = useState(0);
@@ -11,13 +12,10 @@ const App = () => {
 
   return (
     <>
-      <div key={seconds}>
-        {seconds % 2 === 0 &&
-          <Counter key={seconds}/>
-        }
-        <div style={{color: seconds % 2 ? 'red' : 'blue'}}>안녕하세요</div>
-        <h2>지금까지 {seconds}초가 지났습니다.</h2>
-      </div>
+      <Counter />
+      <Todo />
+      <div style={{color: seconds % 2 ? 'red' : 'blue'}}>안녕하세요</div>
+      <h2>지금까지 {seconds}초가 지났습니다.</h2>
     </>
   );
 }
