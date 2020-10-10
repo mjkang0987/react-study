@@ -1,21 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import Counter from './Counter';
-import Todo from './Todo';
 
 const App = () => {
-  const [seconds, setSeconds] = useState(0);
+  const [count1, setCount1] = useState(0);
+  const [count2, setCount2] = useState(0);
+  const onClick = () => {
+    setCount1(count1+1);
+    setCount2(count2+1);
+  }
+
+  console.log('render Called');
   useEffect(() => {
-    setTimeout(_ => {
-      setSeconds(v => v + 1);
-    }, 1000)
+    document.title = `업데이트 횟수: ${count1}`;
   });
 
   return (
     <>
-      <Counter />
-      <Todo />
-      <div style={{color: seconds % 2 ? 'red' : 'blue'}}>안녕하세요</div>
-      <h2>지금까지 {seconds}초가 지났습니다.</h2>
+      <h2>{count1}</h2>
+      <h2>{count2}</h2>
+      <button onClick={onClick}>증가</button>
     </>
   );
 }
