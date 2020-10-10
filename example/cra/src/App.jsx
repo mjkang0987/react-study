@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
-import WidthPrinter from "./WidthPrinter";
+import Profile from "./Profile";
 
 const App = () => {
   const [count, setCount] = useState(0);
-
+  const onClick = () => {
+    setCount(count + 1);
+  }
   return (
     <div>
-      {count === 0 &&
-        <WidthPrinter/>
-      }
-      <button onClick={() => setCount(count + 1)}>증가</button>
-    </div>
+      <Profile userId={count} />
+      <button onClick={onClick}>증가</button>
+   </div>
   )
 }
 
