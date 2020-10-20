@@ -1,19 +1,10 @@
-import React, {useState} from 'react';
-import Profile from "./Profile";
-import WidthPrinter from "./WidthPrinter";
+import React from 'react';
+import Caution2 from "./Caution2";
 
 const App = () => {
-  const [count, setCount] = useState(0);
-  const onClick = () => {
-    setCount(count + 1);
-  }
   return (
-    <div>
-      <Profile userId={count} />
-      <button onClick={onClick}>증가</button>
-      <WidthPrinter />
-   </div>
-  )
+    <Caution2/>
+  );
 }
 
 export default App;
