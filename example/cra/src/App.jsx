@@ -1,9 +1,9 @@
 import React from 'react';
-import Caution2 from "./Caution2";
+import Caution from "./Caution";
 
 const App = () => {
   return (
-    <Caution2/>
+      <Caution/>
   );
 }
 

@@ -1,45 +1,19 @@
-import React, {createContext, useContext, useState} from 'react';
-
-const UserContext = createContext({
-  username: 'unknown',
-  age: 0
-});
+import React, {useRef, useState} from 'react';
 
 const Caution = () => {
-  const [user, setUser] = useState({
-    username: 'mike',
-    age: 0
-  });
-  const [count, setCount] = useState(0)
-  console.log('caution render----');
+  const inputRef = useRef();
+  const [showText, setShowText] = useState(true);
   return (
-    <>
-      <UserContext.Provider value={user}>
-        <Profile/>
-        <button type="button" onClick={() => setCount(count + 1)}>증가</button>
-        {count}
-      </UserContext.Provider>
-    </>
-  )
-}
-
-export const Profile = React.memo(() => {
-  console.log('profile render');
-  return (
-    <>
-      <Greeting />
-    </>
-  )
-})
-
-export const Greeting = () => {
-  console.log('Greeting render');
-  const {username} = useContext(UserContext);
-  return (
-    <>
-      <p>{`${username}님 안녕하세요`}</p>
-    </>
-  )
-}
+    <div>
+      {showText && <input type="text" ref={inputRef} />}
+      <button onClick={_ => setShowText(!showText)}>
+        텍스트 보이기/가리기
+      </button>
+      <button onClick={_ => inputRef.current && inputRef.current.focus()}>
+        텍스트로 이동
+      </button>
+    </div>
+  );
+};
 
 export default Caution;
