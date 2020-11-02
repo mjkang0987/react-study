@@ -1,9 +1,13 @@
 import React from 'react';
+import UseMemo from "./UseMemo";
+import UseCallback from "./UseCallback";
 
-const App = () => {
+const UseRef = () => {
   return (
-    <div>리액트 내장훅</div>
+    <div>
+      <UseCallback/>
+    </div>
   );
 }
 
-export default App;
+export default UseRef;
