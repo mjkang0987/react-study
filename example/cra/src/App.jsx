@@ -1,9 +1,8 @@
 import React from 'react';
-import Caution from "./Caution";
 
 const App = () => {
   return (
-      <Caution/>
+    <div>리액트 내장훅</div>
   );
 }
 
