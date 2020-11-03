@@ -1,11 +1,11 @@
 import React from 'react';
-import UseMemo from "./UseMemo";
-import UseCallback from "./UseCallback";
+import UseImperativeHandleParent from "./UseImperativeHandleParent";
+
 
 const UseRef = () => {
   return (
     <div>
-      <UseCallback/>
+      <UseImperativeHandleParent/>
     </div>
   );
 }
