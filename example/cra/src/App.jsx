@@ -1,9 +1,10 @@
-import React from 'react';
+import React  from 'react';
+import FriendPage from './container/FriendPage';
 
 const App = () => {
   return (
     <div>
-      리액트
+      <FriendPage />
     </div>
   );
 }
