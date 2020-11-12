@@ -1,24 +1,34 @@
 import React, { useState } from 'react';
-import MyComponent from './MyComponent';
 
 const App = () => {
-  const [value1, setValue1] = useState(0);
-  const [value2, setValue2] = useState(0);
+  const [fruits, setFruits] = useState(['apple', 'banana', 'orange']);
+  const [newFruits, setNewFruits] = useState('');
+  const addNewFruit = _ => {
+    setFruits([...fruits, newFruits])
+    // fruits.push(newFruits);
+    setNewFruits('');
+  }
   return (
     <div>
-      <button
-        onClick={() => setValue1(value1 + 1)}>
-        value1 증가
-      </button>
-      <button
-        onClick={() => setValue2(value2 + 1)}>
-        value2 증가
-      </button>
-      <MyComponent
-        value1={value1}
-        value2={value2} />
+     <Selected options={fruits} />
+     <input
+       type="text"
+       value={newFruits}
+       onChange={e => setNewFruits(e.target.value)}
+     />
+     <button
+       onClick={addNewFruit}
+     >추가하기</button>
     </div>
   )
 }
+
+const Selected = React.memo(({options}) => (
+  <div>
+    {options.map((items, index) => (
+      <p key={`${items}${index}`}>{items}</p>
+    ))}
+  </div>
+));
 
 export default App;
