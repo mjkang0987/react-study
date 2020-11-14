@@ -1,15 +1,12 @@
 import React from 'react';
-import Fruits from './Fruits';
-import Flag from './Flag';
-import Change from './Change';
-import Array from './Array';
+import Redux from './Redux';
 
 const App = () => {
   return (
     <div>
-      <Array/>
+      <Redux/>
     </div>
-  );
-};
+  )
+}
 
 export default App;
