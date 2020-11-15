@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import Middleware from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Middleware />
   </React.StrictMode>,
   document.getElementById('root')
 );
